@@ -1,31 +1,39 @@
 #include <iostream>
-//#include <string>
-//#include <cstring>
+#include <string>
+#include <stdio.h>
+#include <algorithm>
+#include <cctype>
 
-using namespace std;
+//using namespace std;
 
 int main()
 {
-    char str[101];
-    char str2[101];
 
-    cin >> str;
+    std::string st;
+    std::string stt;
+    std::string sr;
+    sr=".";
+    st="";
+    stt="";
+
+    std::string s;
+    std::cin >> s;
+    std::transform(s.begin(), s.end(), s.begin(), tolower);
+
     int j = 0;
-    for (int i = 0; i < 101; i++)
-    {
-        if (str[i] != 'a' && str[i] != 'e' && str[i] != 'u' &&
-            str[i] != 'A' && str[i] != 'E' && str[i] != 'U' &&
-            str[i] != 'o' && str[i] != 'O' && str[i] != 'y' &&
-            str[i] != 'Y' && str[i] != 'i' && str[i] != 'I')
+    int l =s.length();
+    for (int i = 0; i < l; i++)
+        if (s[i] != 'a' && s[i] != 'e' && s[i] != 'u' &&
+            s[i] != 'A' && s[i] != 'E' && s[i] != 'U' &&
+            s[i] != 'o' && s[i] != 'O' && s[i] != 'y' &&
+            s[i] != 'Y' && s[i] != 'i' && s[i] != 'I')
             {
-                str2[j] = '.';
-                str2[j+1] = str[i];
-
-                j = j + 2;
+                stt.append(sr);
+                st=s[i];
+                stt.append(st);
             }
-    }
 
-    cout << str2;
+    std::cout << stt;
 
     return 0;
 }
